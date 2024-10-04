@@ -1,0 +1,204 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: #1f293d;
+  background-image: linear-gradient(to top, #434343 0%, black 100%);
+
+  /* background-image: linear-gradient(60deg, #29323c 0%, #485563 100%); */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 400px;
+  height: 400px;
+  /* background-color: aqua; */
+}
+
+.bars-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.bar {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 8px;
+  height: 3.5rem;
+  transform-origin: 50% 100%;
+  border-radius: 4px;
+}
+
+.auth-form-heading {
+  /* color: #ffa500; */
+  background: -webkit-linear-gradient(#ffa500, #fde68a);
+  font-weight: 800;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1.5rem;
+  z-index: 50;
+}
+
+.auth-input-container {
+  position: relative;
+  margin-bottom: 1rem;
+  /* overflow: hidden; */
+}
+
+.auth-input-field {
+  border: none;
+  padding: 0.75rem;
+  background-color: transparent;
+  border-bottom: 1px solid #f1f8fe;
+  width: 100%;
+  color: #f1f8fe;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.auth-input-field:focus {
+  outline: none;
+  border-bottom: 1px solid #ffa500;
+}
+
+.auth-input-field::placeholder {
+  color: transparent;
+}
+
+.auth-input-label {
+  position: absolute;
+  top: 0.75rem;
+  left: 0;
+  color: #f1f8fe;
+  font-weight: bold;
+  pointer-events: none;
+  transition: transform 0.3s ease, font-size 0.3s ease,
+    color 0.3s ease;
+  z-index: 20;
+}
+
+.auth-input-field:focus ~ .auth-input-label,
+.auth-input-field:not(:placeholder-shown) ~ .auth-input-label {
+  transform: translateY(-1.5rem);
+  font-size: 0.8rem;
+  color: #f1f8fe;
+}
+
+/* Button Hover Animation */
+
+.auth-submit-button {
+  background-image: linear-gradient(
+    to right,
+    #f09819 0%,
+    #edde5d 51%,
+    #f09819 100%
+  );
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+
+  box-shadow: 0px 0px 50px 10px #c18311;
+  border-radius: 100px;
+  display: block;
+  border: none;
+}
+
+.auth-submit-button:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.auth-link-con {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.auth-link {
+  text-decoration: none;
+  color: #e569f0;
+  font-size: 0.9rem;
+  transition: all 0.5s;
+  position: relative;
+}
+
+.auth-link::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ea00ff;
+  transition: width 0.4s ease;
+}
+
+.auth-link:hover::before {
+  width: 100%;
+}
+
+.auth-link:hover {
+  text-decoration: none;
+  color: #ea00ff;
+}
+
+/* Media Query for Smaller Screens */
+@media screen and (max-width: 640px) {
+  .bars-container {
+    display: none;
+  }
+
+  .auth-form {
+    border: 1px solid #e5e7eb;
+    width: 90%;
+    border-radius: 12px;
+    padding: 1rem;
+  }
+  .auth-form-heading {
+    font-size: 1.5rem;
+  }
+
+  .auth-submit-button {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    box-shadow: 0px 0px 40px 7px #c18311;
+  }
+
+  .auth-input-field {
+    padding: 0.5rem;
+  }
+
+  .auth-input-label {
+    font-size: 0.8rem;
+  }
+
+  .auth-link {
+    font-size: 0.8rem;
+  }
+}
